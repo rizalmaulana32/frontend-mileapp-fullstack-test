@@ -58,7 +58,7 @@ const fetchTasks = async () => {
     if (filterStatus.value) params.append('status', filterStatus.value)
     if (filterTitle.value) params.append('title', filterTitle.value)
 
-    const response = await fetch(`http://localhost:3000/tasks?${params}`, {
+    const response = await fetch(`https://backend-mileapp-fullstack-test.vercel.app/tasks?${params}`, {
       headers: getAuthHeader()
     })
 
@@ -98,8 +98,8 @@ const handleSubmit = async () => {
   loading.value = true
   try {
     const url = isEditing.value
-      ? `http://localhost:3000/tasks/${editingTaskId.value}`
-      : 'http://localhost:3000/tasks'
+      ? `https://backend-mileapp-fullstack-test.vercel.app/tasks/${editingTaskId.value}`
+      : 'https://backend-mileapp-fullstack-test.vercel.app/tasks'
 
     const method = isEditing.value ? 'PUT' : 'POST'
 
@@ -129,7 +129,7 @@ const deleteTask = async (id: string) => {
 
   loading.value = true
   try {
-    const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+    const response = await fetch(`https://backend-mileapp-fullstack-test.vercel.app/tasks/${id}`, {
       method: 'DELETE',
       headers: getAuthHeader()
     })
